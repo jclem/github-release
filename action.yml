@@ -34,11 +34,11 @@ runs:
   using: docker
   image: Dockerfile
   args:
-    - ${{inputs.tag-name}}
-    - ${{inputs.target-commitish}}
-    - ${{inputs.name}}
-    - ${{inputs.body}}
-    - ${{inputs.draft}}
-    - ${{inputs.prerelease}}
-    - ${{inputs.assets}}
-    - ${{inputs.github-token}}
+    - "${{inputs.tag-name}}"
+    - "${{inputs.target-commitish}}"
+    - "${{inputs.name}}"
+    - "${{inputs.body}}"
+    - "${{inputs.draft}}"
+    - "${{inputs.prerelease}}"
+    - "${{inputs.assets}}"
+    - "${{inputs.github-token}}"
