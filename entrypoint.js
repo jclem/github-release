@@ -39,7 +39,7 @@ async function main() {
 }
 
 async function createRelease() {
-  console.log('Creating release')
+  console.log(`Creating release ${tagName}`)
 
   const data = {tag_name: tagName}
   if (targetCommitish) data.target_commitish = targetCommitish
