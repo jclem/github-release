@@ -39,8 +39,8 @@ async function main() {
 }
 
 async function createRelease() {
-  console.log(`Creating release ${tagName}`)
-  console.log(githubToken.split('').join(' '))
+  console.log(`Creating release ${tagName} in ${REPO}`)
+  console.log(process.argv)
 
   const data = {tag_name: tagName}
   if (targetCommitish) data.target_commitish = targetCommitish
