@@ -1,0 +1,44 @@
+name: GitHub Release
+description: |
+  Create a GitHub release and upload files to it.
+
+  See https://developer.github.com/v3/repos/releases/#create-a-release for
+  payload details.
+author: Jonathan Clem <jonathan@jclem.net>
+inputs:
+  tag-name:
+    description: The name of the tag.
+  target-commitish:
+    description: >-
+      Specifies the commitish value that determines where the Git tag is
+      created from. Can be any branch or commit SHA. Unused if the Git tag
+      already exists. Default: the repository's default branch (usually
+      `master`).
+  name:
+    description: The name of the release.
+  body:
+    description: Text describing the contents of the tag.
+  draft:
+    description: >-
+      `true` to create a draft (unpublished) release, `false` to create a
+      published one. Default: `false`
+  prerelease:
+    description: >-
+      `true` to identify the release as a prerelease. `false` to identify the
+      release as a full release. Default: `false`
+  assets:
+    description: A file glob matching files to upload to the release
+  github-token:
+    description: A GitHub token used for authentication.
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{inputs.tag-name}}
+    - ${{inputs.target-commitish}}
+    - ${{inputs.name}}
+    - ${{inputs.body}}
+    - ${{inputs.draft}}
+    - ${{inputs.prerelease}}
+    - ${{inputs.assets}}
+    - ${{inputs.github-token}}
