@@ -29,7 +29,10 @@ prerelease = prerelease === 'true'
 assets = assets || null
 githubToken = githubToken || null
 
-main()
+main().catch(err => {
+  console.error(err)
+  process.exit(1)
+})
 
 async function main() {
   const releaseID = await createRelease()
