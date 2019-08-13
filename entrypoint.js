@@ -9,7 +9,7 @@ const stat = promisify(fs.stat)
 const USER_AGENT = 'jclem/github-release'
 const REPO = process.env.GITHUB_REPOSITORY
 
-let [
+let {
   tagName,
   targetCommitish,
   name,
@@ -18,7 +18,7 @@ let [
   prerelease,
   assets,
   githubToken
-] = process.env
+} = process.env
 
 tagName = tagName || null
 targetCommitish = targetCommitish || null
